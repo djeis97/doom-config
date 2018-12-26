@@ -1,10 +1,6 @@
 ;;; General settings
 
-(setq ; doom-leader-key "SPC"
-      doom-localleader-key ","
-      doom-font (font-spec :family "Source Code Pro" :size 9)
-      doom-big-font (font-spec :family "Source Code Pro" :size 18)
-      user-full-name "Elijah Malaby"
+(setq user-full-name "Elijah Malaby"
       user-mail-address "qwe12345678910@gmail.com"
       mouse-wheel-scroll-amount '(3)
       mouse-wheel-progressive-speed nil
@@ -99,7 +95,7 @@
 
 (add-hook! lisp-mode
   (paren-management 1))
-(add-hook! emacslisp-mode
+(add-hook! emacs-lisp-mode
   (paren-management 1))
 (add-hook! clojure-mode
   (paren-management 1))
@@ -195,6 +191,8 @@
   (aggressive-indent-mode 1))
 
 (add-hook! company-mode
+  (let ((func (lambda (x) (funcall #'company-indent-or-complete-common))))
+    (setq adjust-parens-fallback-indent-function func))
   (djeis97-programming-tools/company-tng-configure-default))
 
 (add-hook! prog-mode
@@ -361,7 +359,7 @@ Can show completions at point for COMMAND using helm or ido"
   ;;   is a more feature-rich alternative.
   (exwm-input-set-key (kbd "<s-escape>")
                       (lambda () (interactive) (start-process "" nil exwm--locking-command)))
-(exwm-input-set-key (kbd "<f20>") (lookup-key evil-normal-state-map (kbd "<f20>")))
+  (exwm-input-set-key (kbd "<f20>") (lookup-key evil-normal-state-map (kbd "<f20>")))
   ;; The following example demonstrates how to set a key binding only available
   ;; in line mode. It's simply done by first push the prefix key to
   ;; `exwm-input-prefix-keys' and then add the key sequence to `exwm-mode-map'.
@@ -420,8 +418,8 @@ Can show completions at point for COMMAND using helm or ido"
   :config
   (push ?\C-\\ exwm-input-prefix-keys))
 
-;; (after! evil
-;;   (add-hook! exwm-mode 'evil-emacs-state))
+(after! evil
+  (add-hook! exwm-mode 'evil-emacs-state))
 
 (after! proof-general
   (setq proof-three-window-mode-policy 'hybrid))

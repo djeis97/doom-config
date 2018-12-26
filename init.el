@@ -1,10 +1,12 @@
 ;;; init.el -*- lexical-binding: t; -*-
 ;; Copy me to ~/.doom.d/init.el or ~/.config/doom/init.el, then edit me!
 
-; (setq-default doom-leader-key "SPC"
-;               doom-localleader-key ","
-;               doom-font (font-spec :family "Source Code Pro" :size 9)
-;               doom-big-font (font-spec :family "Source Code Pro" :size 18))
+(setq-default doom-leader-key "SPC"
+              doom-leader-alt-key "<f20>"
+              doom-localleader-key ","
+              doom-localleader-alt-key "<M-f20>"
+              doom-font (font-spec :family "Source Code Pro" :size 9)
+              doom-big-font (font-spec :family "Source Code Pro" :size 18))
 
 (doom! :feature
                                         ;debugger          ; FIXME stepping through code, to help you add bugs
