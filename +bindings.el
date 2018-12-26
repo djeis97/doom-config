@@ -140,10 +140,10 @@
 ;;; Leader keybindings
 
 (map! :leader
-      :desc "Run Command"                "SPC" #'spacemacs/exwm-app-launcher
-      :desc "M-x"                        "<f20>" #'execute-extended-command
-      :desc "Toggle last popup"          "`"    #'+popup/toggle
-      :desc "Universal Argument"         "u" #'universal-argument
+      :desc "Run Command"               :n "SPC" #'spacemacs/exwm-app-launcher
+      :desc "M-x"                       :n "<f20>" #'execute-extended-command
+      :desc "Toggle last popup"         :n "`"    #'+popup/toggle
+      :desc "Universal Argument"        :n "u" #'universal-argument
       (:when (featurep! :completion ivy)
         :desc "Resume last search"      :n "'"    #'ivy-resume)
       :desc "window"                    :n "w"    evil-window-map
