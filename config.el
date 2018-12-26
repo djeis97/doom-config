@@ -1,6 +1,6 @@
 ;;; General settings
 
-(setq doom-leader-key "SPC"
+(setq ; doom-leader-key "SPC"
       doom-localleader-key ","
       doom-font (font-spec :family "Source Code Pro" :size 9)
       doom-big-font (font-spec :family "Source Code Pro" :size 18)
